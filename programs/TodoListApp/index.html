@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    
+    <header>
+        <h1>Task List</h1>  <!-- First Task List section where you submit tasks (Form) -->
+        
+        <form id="new-task-form">  <!--we are creating id's so we can later reference this and style/tag it-->
+
+            <input 
+                type="text" 
+                id = "new-task-input"
+                placeholder = "What do you have planned?" />
+                    <!--input type text, filler text shown before something is typed by user -->
+            <input 
+                    type="submit"
+                    id = "new-task-submit"
+                    value = "Add task" />
+                    <!--input type submit, to actually submit our form -->
+        </form>
+    </header>
+
+    <main>
+        <section class="task-list"> <!-- Second is the list of tasks submitted (lets set this up in main.js instead of this .html script) -->
+            <h2>Tasks</h2>
+            
+            <div id="tasks"> <!-- div with id called "tasks", so we can reference this later in JS -->
+
+
+            </div> 
+        </section>
+    </main>
+
+    <script src="main.js"></script> <!-- link our javascript script file -->
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* Lets create a custom property, aka a CSS varaible */
+ :root {
+/* Lets set up some colours, via hexadecimal vlaues, that we can use throughout our script for styling our webpage */
+    --dark: #374151;
+    --darker: #1F2937;
+    --darkest: #111827;
+    --grey: #6B7280;
+    --light: #dcd9d9;
+    --pink: #EC4899;
+    --purple: #8B5CF6;
+    --darkpurple: #242943; /* dark purple/blue like email BG #242943, or light purple/grey: rgba(212, 212, 255, 0.1)  */
+ }
+
+/* To use a class: var(--name), ex: var(--dark)*/
+
+/* Global Webpage Layout Settings: Spacing, Font, Background Colour,  */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Fira sans', sans-serif;
+}
+
+body { 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 100 viewport height */
+    background: var(--darkpurple);
+    color: #FFF; /* set font colour to white */
+}
+
+header { /* The entire header section, aka task1 h1 heading, its content window, and its 'Add task' button*/
+    padding: 2rem 1rem;
+    max-width: 800px; /* so it never goes above 800 pixels in width */
+    width: 100%; 
+    margin: 0 auto; /* stays centered when screen is stretched to be bigger */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+#new-task-form { /* referencing the new-task-form id we created in our .html script so we can style it */ 
+    display: flex;  /*  */
+}
+
+/* Since we want to edit/style the buttons completely ourselves, lets set their settings to none to start with */
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+/* edit task input content size, shape, colour, padding, etc */
+#new-task-input {
+    flex: 1 1 0%; /* to push our task content accross */
+    background-color: var(--darker); /* add a dark color to this window */
+    padding: 1rem; /* add vertical padding up and down to this window */
+    border-radius: 1rem; /* add rounding borders to window */
+    margin-right: 1rem; /* add a padding of 1rem tot he window from the right */
+    color: var(--light); /* font color when you type */
+    font-size: 1.25rem;
+}
+
+#new-task-input::placeholder { /* edit the placeholder text, inside the task input content window */
+    color: var(--grey);
+}
+
+#new-task-submit { /* button (next to input content window) settings */
+    color: var(--pink); /* button font colour */
+    font-size: 1.25rem; /* same font size */
+    font-weight: 700; /* bold font */
+    background-image: linear-gradient(to right, var(--pink), var(--purple)); /* gradient colour accross this button container */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* webkit is used to clip gradient to text only */
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#new-task-submit:hover { /* we added a transition of 0.4 seconds, so lets set 'hover' and 'active' opacity settings */
+    opacity: 0.8;
+}
+
+#new-task-submit:active { /* 'active' = click */
+    opacity: 0.6;
+}
+
+main { /* move task-list into container too */
+    flex: 1 1 0%;
+    padding: 2rem 1rem;
+    max-width: 800px; 
+    width: 100%; 
+    margin: 0 auto;
+}
+
+.task-list {  /* pad it down */
+    padding: 1rem;
+}
+
+.task-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+#tasks .task { /* use Flexbox again to push task class (id="tasks", and then to go into its class use (dot) operator: .class = "task") to the right */ 
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--darkest); /* setup a container with round borders again  */ 
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+#tasks .task .content { /* so longer text can fit into task contents */  
+    flex: 1 1 0%;
+}
+
+#tasks .task .content .text {
+    color: var(--light); /* make the text light so it contrasts well from background color of container */ 
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+#tasks .task .content .text:not(:read-only) { /* currently "My special task" text is read only, if it was not set to read-only in our .html file */ 
+    color: var(--pink); /* then we the font would change to pink */ 
+}
+
+#tasks .task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button { /*  */ 
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.4s; 
+}
+
+/* we added a transition of 0.4 seconds, so lets set 'hover' and 'active' opacity settings on the button now */
+.task .actions button:hover { 
+    opacity: 0.8;
+}
+
+.task .actions button:active { /* 'active' = click */
+    opacity: 0.6;
+}
+
+.task .actions .edit {
+    background-image: linear-gradient(to right, rgb(70, 187, 154), rgb(2, 142, 202)); /* gradient colour accross this button container */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* webkit is used to clip gradient to text only */
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.task .actions .delete {
+    background-image: linear-gradient(to right, crimson,rgb(130, 62, 20)); /* gradient colour accross this button container */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* webkit is used to clip gradient to text only */
+    cursor: pointer;
+    transition: 0.4s;
+}
