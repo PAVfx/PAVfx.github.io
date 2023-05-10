@@ -1,0 +1,94 @@
+/* Lets create a custom property (for the colors), aka a CSS varaible */
+:root {
+    /* Lets set up some colours, via hexadecimal vlaues, that we can use throughout our script for styling our webpage */
+        --dark: #374151;
+        --darker: #1F2937;
+        --darkest: #111827;
+        --grey: #6B7280;
+        --light: #dcd9d9;
+        --pink: #EC4899;
+        --red: #ca0e14;
+        --green: #18b603;
+        --blue: #08869f;
+        --purple: #8B5CF6;
+        --darkpurple: #242943; /* dark purple/blue like email BG #242943, or light purple/grey: rgba(212, 212, 255, 0.1)  */
+     }
+    
+    /* To use a class: var(--name), ex: var(--dark)*/
+    
+    /* Global Webpage Layout Settings: Spacing, Font, Background Colour,  */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: 'Fira sans', sans-serif;
+    }
+    
+    body { 
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* 100 viewport height */
+        background: var(--darkpurple);
+        color: var(--light); /* set font colour to white */
+    }
+
+    .watch {
+        text-align: center;
+        background-color: var(--darkest); /* add a border/ bg color around the watch class */
+        width: 100%;
+        max-width: 360px; /* limit width */
+        margin: 4rem auto; /* add 4rem of padding (vertically down) and then auto center */
+        padding: 1rem 2rem; /* add vertical padding, adn horizontal padding */
+        border-radius: 1rem;
+    }
+
+    /* lets adjust size of our time (class from html script) element 00:00:00 */
+    .timeDisplay {
+        font-size: 5rem; /* font size */
+        font-weight: 300;  /* boldness */
+    }
+
+    .controls { /* this ensure controls will stay where they are as webpage window is stretched */
+        display: flex; /* ensures all buttons are aligned horizontallty next to one another */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .controls button { /* set all button settings to none, so we can make it from scratch */
+        /* Button Resets */
+        appearance: none; 
+        background: none; /* button color */
+        border: none; /* button black base with highlight around edge */
+        outline: none; 
+        user-select: none; /* so we cannot highlight the buttons with LMB */
+        cursor:pointer; /* we want a pointer cursor */
+
+        /* Button Styling */
+        color: var(--light); /* add a border/ bg color around the watch class */
+        font-size: 1.125rem; /* increase font size slightly */
+        background-color: var(--darker); /* add a border/ bg color around the watch class */
+        margin: 0rem 0.5rem; /* button width spacing */
+        padding: 0.5rem 1rem; /* button content window's actual height and width */
+        border-radius: 0.5rem; /* curve the button's content window */
+
+        /* Transition Animations */
+        transition: 0.4s;
+    }
+
+button:hover {
+    opacity: 0.7; /* buttons fade out when hovered over */
+}
+
+
+/* button colours upon active click */
+button#start:active {
+    background-color: var(--green); /* when buttons clicked, change colour to green */
+}
+
+button#stop:active {
+    background-color: var(--red); /* when buttons clicked, change colour to red */
+}
+
+button#reset:active {
+    background-color: var(--blue); /* when buttons clicked, change colour to blue */
+}
+
