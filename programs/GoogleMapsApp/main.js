@@ -3,24 +3,27 @@
 
 var map;
 
-async function initMap() {
+async function initMap() 
+{
   const { Map } = await google.maps.importLibrary("maps");
 
-  map = new Map(document.getElementById("map"), {
-    center: { lat: 49.2827, lng: -123.1207 }, // Vancouver: 49.2827° N, 123.1207° W (West = negative, South = negative)
+  map = new Map(document.getElementById("map"), { // create map
+    center: { lat: 49.2827, lng: -123.1207 }, // center it at Vancouver: 49.2827° N, 123.1207° W (West = negative, South = negative)
     zoom: 10,
     mapId: '1e91fe057ddd1491', 
   });
-
-  setMarkers(map);
+  
+  // pass that created map to this function
+  setMarkers(map); 
 } // end of initmap
 
 // This markers[] array will contain 'location arrays' that contain:
 // "Name"
 // Latitude, Longitude
 // Marker size (width, height)
-const markers = [
-  [ // Location Array 1
+
+const markers = [ // we will add a marker at each of the following location array
+  [ // Location Array 1 
   "Vancouver", // Location Array 1's [Element 0]
   49.2827, // Location Array 1's [Element 1]
   -123.1207, // Location Array 1's [Element 2]
@@ -29,19 +32,21 @@ const markers = [
 
   [ // Location Array 2
   "Burnaby", // same element setup as previous Location Array
-  49.2488
-  -122.9805
+  49.2488,
+  -122.9805,
   (3,3)
   ],
 
   [ // Location Array 3
   "Surrey",
-  49.1913
-  -122.8490
+  49.1913,
+  -122.8490,
   (3,3)
   ],
 ];
 
+
+// the actual function that will add markers to our map
 function setMarkers(map) 
 {
   // Adds markers to the map.
@@ -59,17 +64,34 @@ function setMarkers(map)
     anchor: new google.maps.Point(0, 32),
   };
 
+  // Shapes define the clickable region of the icon. The type defines an HTML
+  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+  // The final coordinate closes the poly by connecting to the first coordinate.
+  const shape = {
+    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    type: "poly",
+  };
+
 for (let i = 0; i < markers.length; i++)
   {
   const currMarker = markers[i];
 
   // Create a Google Maps Marker
-  var marker = new google.maps.Marker({
+ new google.maps.Marker({
     position: {lat: currMarker[1], lng: currMarker[2]},
     map,
-    icon: {scaledSize: new google.maps.Size(currMarker[3])},
-    title: currMarker[0] // Title "Name" of Location
+    icon: image, // scaledSize: new google.maps.Size(currMarker[3])
+    shape: shape,
+    title: currMarker[0], // Title "Name" of Location
+    zIndex: 2,
   });
+
+  } // end of for loop
+} // end of the setMarkers method
+
+window.initMap() = initMap();
+
+/* 
 
   // Info Window Popup Feature
   const infowindow = new google.maps.InfoWindow({
@@ -80,7 +102,5 @@ for (let i = 0; i < markers.length; i++)
   marker.addListener("click", () => {
     infowindow.open(map, marker);
   });
-  } // end of for loop
-} // end of the setMarkers method
 
-window.initMap() = initMap();
+*/
