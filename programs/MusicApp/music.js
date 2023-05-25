@@ -23,7 +23,7 @@ let trackList = [ // tracklist array
     {
         name: "Wilfords Gone",
         path: "./Songs/pav-the-blackbyrds-wilfords-gone.mp3",
-        img: "/MusicImages/TheBlackbyrds.jpg",
+        img: "/MusicImages/TheBlackbyrds.png",
         singer: "The Blackbyrds",
     }
 ]

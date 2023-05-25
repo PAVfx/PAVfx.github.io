@@ -20,7 +20,7 @@ volumeIcon = document.querySelector("#volume-icon"), // volume-icon class si the
 currentVolume = document.querySelector("#volume"), // volume range input slider that shows what the current volume is
 
 // Auto-play class button
-autoPlay = document.querySelector(".play-all"), // volume range input slider that shows what the current volume is
+autoPlayBtn = document.querySelector(".play-all"), // volume range input slider that shows what the current volume is
 
 // Bar icon make playlist slide in:
 playlistBars = document.querySelector(".fa-bars"), // playlist dropdown bars icon
@@ -37,10 +37,11 @@ let indexTrack = 0; // current track thats supposed to be played
 let songIsPlaying = false; // check if song is playing
 let song = document.createElement("audio"); // create audio element
 
-// when the page loads up, we also want to load an .mp3 up, so its ready to play
+// Event Listeners: For which button is clicked: play, next, prev, Play All
 play.addEventListener("click", justPlay); // listen for a click event on the play button, if clicked, then call 'justPlay' function: which chooses to 'playSong' or 'pauseSong'
 next.addEventListener("click", nextSong); // listen for a click event on the next button, if clicked, then call 'playSong' function
 prev.addEventListener("click", prevSong); // listen for a click event on the prev button, if clicked, then call 'prevSong' function
+autoPlayBtn.addEventListener("click", autoPlayToggle); // listen for a click event on the Play All button, if clicked, then call 'autoPlayToggle' function
 
 // Load Track Function
 function loadTrack(indexTrack) { // load first song in array
@@ -50,6 +51,8 @@ function loadTrack(indexTrack) { // load first song in array
     artist.innerHTML = trackList[indexTrack].singer; // get 'singer' property of the tracklist object (array from the music.js script)
     song.load(); // load the actual mp3 song
 }
+
+// when the page loads up, we also want to load an .mp3 up, so its ready to play, so lets call it right away
 loadTrack(indexTrack);
 
 // Play Song or Pause Song Function
@@ -101,5 +104,17 @@ function prevSong() {
         indexTrack = trackList.length-1;
         loadTrack(indexTrack);
         playSong();
+    }
+}
+
+// Auto Play Function
+function autoPlayToggle() {
+    if (autoplay == 0) {
+        autoplay = 1; // set to 1
+        autoPlayBtn.style.background = "#6B7280"; // dark grey = #6B7280, dark orange = #9c5f0f
+    }
+    else {
+        autoplay = 0; // set back to 0
+        autoPlayBtn.style.background = "#dcd9d9"; // change it back to --light
     }
 }
