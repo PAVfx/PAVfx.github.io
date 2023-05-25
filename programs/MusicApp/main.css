@@ -41,11 +41,11 @@
     align-items: center;
    } 
 
-    /* center the "container box" class: to center of browser */
+    /* set app width */
    .music { 
     position: relative;
     background: black;
-    width: 25rem;
+    width: 35rem;
     border-radius: 5px;
     padding: 1rem;
    } 
