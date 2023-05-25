@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+   
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="style/normalize.css" rel="stylesheet" type="text/css">
+    <link href="style/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+
+    <link rel="stylesheet" href="main.css" /> <!-- link our main.css script -->
+</head>
+<body>
+    <section class="main">
+        <div class="container box">
+            <div class="music"> <!-- Music Class -->
+
+                <!-- Music Player Class: everything we see on our app page to do with music -->
+                <div class="music-player">
+                    
+                    <!-- Music Player Header class: Music Icon, Now Playing, and Playlist Tab Buttons -->
+                    <div class="music-header">
+                        <!-- Icon: 'Music' -->
+                        <i class="fa fa-solid fa-music"></i>
+                        <h2>Now Playing (PAVfm)</h2>
+                        <!-- Icon: 'Dropdown Bars' -->
+                        <i class="fa fa-solid fa-bars"></i> <!-- Music Note Icon form fontawesome -->
+                    </div> <!-- End of Music Player Heading -->
+
+                    <!-- Song 'Details' Heading -->
+                    <div class="details">
+                        <!-- Music Image -->
+                        <img class = "track-image" src="./MusicImages/MusicAppFinal.png" alt="" width="370" height="370"> <!-- Adjusted image size until it fit (384x384 = full) -->
+                        <p class="title">Song Title</p>
+                        <p class="artist">Artist Name</p>
+                    </div>
+
+                    <!-- Player Controls -->
+                    <div class="controls">
+                        <div class="song-timer">
+                            <span class="current-time">00:12</span> <!-- <span> instead of <div> because we are not wrapping an entire section, but instead a word on the same line -->
+                            <span class="track-duration">04:10</span> <!-- Since with span, there is no (No align attribute), this text will be on same line -->
+                        </div>
+                        <div class="duration">
+                            <!-- Input: range slider, 'duration-slider' class, min/max limits, value=0 (becasue we dont want to alter the played duration) -->
+                            <input 
+                            type="range"  
+                            class="duration-slider"
+                            min="0"
+                            max="100"
+                            value="0"
+                            >
+                        </div>
+                        <!-- Button Controls: prev, play, forw -->
+                        <div class="buttons">
+                            <button class="prev">
+                                <i class="fa fas fa-step-backward"></i>
+                            </button>
+                            <button class="play">
+                                <i class="fa fa fa-play"></i>
+                            </button>
+                            <button class="next">
+                                <i class="fa fas fa-step-forward"></i>
+                            </button>
+                        </div>
+
+                        <!-- Autoplay Button -->
+                        <button class="play-all">
+                            Play All <i class="fa fas fa-step-forward"></i>
+                        </button>
+                        
+                        <!-- Volume Buttons and Slider -->
+                        <div class="volume">
+                            <p id="show-volume">50</p>
+                            <i class="fa fas fa-volume-up" id="volume-icon"></i> <!-- Volume Speaker Icon fontawesome -->
+                            <input 
+                            type="range"  
+                            min="0"
+                            max="100"
+                            value="0"
+                            >
+                        </div>
+
+                        <!-- Music Playlist: Volume Buttons and Slider -->
+                        <div class="music-playlist">
+                            <div class="playlist-header">
+                                <!-- Icon: 'Music' -->
+                                <i class="fa fas fa-music"></i> <!-- End of Music Player Heading -->
+                                <h2>Playlist</h2>
+                                <!-- Icon: 'Playlist Dropdown Bars' -->
+                                <i class="fa fas fa-times"></i> <!-- Close 'X' icon -->
+                            </div> <!-- End of Music Player Heading -->
+
+                            <!-- Playlist Item -->
+                            <div class="playlist-que">
+                                <div class="playlist">
+                                    <span class="song-index">1</span>
+                                    <p class="single-track">Song one</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- End ofPlayer Controls -->
+
+                </div> <!-- End of Music Player Class -->
+                
+                <!-- Playlist Class: aka a dropdown tab that shows available songs -->
+                <div class="muisc-playlist">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script src="music.js" ></script> <!-- to get music.js to work with index.html -->
+    <script src="main.js" ></script> <!-- to get main.js to work with index.html -->
+</body>
+</html>
+

@@ -1,0 +1,275 @@
+/* Lets create a custom property, aka a CSS varaible */
+:root {
+    /* Lets set up some colours, via hexadecimal values, that we can use throughout our script for styling our webpage */
+        --dark: #374151;
+        --darker: #1F2937;
+        --darkest: #111827;
+        --grey: #6B7280;
+        --greyblue: #4b5c7d;
+        --light: #dcd9d9;
+        --disk: #291e2b;
+        --maroon: #5d3857; /* same as our img (used color picker in photoshop)  */
+        --pink: #EC4899;
+        --purple: #8B5CF6;
+        --boldpurple: #311950;
+        --darkpurple: #242943; /* dark purple/blue like email BG #242943, or light purple/grey: rgba(212, 212, 255, 0.1)  */
+     } /* end of color declarations */
+    
+    /* To use a class: var(--name), ex: var(--dark)*/
+    
+    /* Global Webpage Layout Settings: Spacing, Font, Background Colour,  */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: 'Fira sans', sans-serif;
+    }
+    
+    body { 
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* 100 viewport height */
+        background: var(--darkpurple);
+        color: #ffffff; /* set font and icon colour to white */
+    }
+
+    /* center the "container box" class: to center of browser */
+   .box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   } 
+
+    /* center the "container box" class: to center of browser */
+   .music { 
+    position: relative;
+    background: black;
+    width: 25rem;
+    border-radius: 5px;
+    padding: 1rem;
+   } 
+
+   /* music-player header class: lets seperate 'Music Icon' from 'Now Playing' from 'Bars Icon' */
+    .music-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .music-header .fa {   /* .fa to edit the font awesome icons in that music-header class */
+        font-size:1.6rem;
+        color: var(--boldpurple)
+    }
+
+    .fa-bars { /* access bars icon via .fa, and make it clickable */
+        cursor: pointer;
+    }
+
+    /* Music Playlist font */
+    .music-header {  
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    /* class 'details' */
+    .details img {
+        width: 100%;
+        border: 3px solid var(--boldpurple); /* Border around image */
+        margin-bottom: 1rem;
+    }
+
+    .details .artist {   /* class artist in class 'details' (Below image and Song Title) */
+       font-size: 1.2rem; 
+       font-weight: 600; 
+       color: var(--dark);
+    }
+
+    /* Controls */
+    .controls {
+        background: var(--maroon);
+        padding: 2rem 1rem;
+        border-radius: 3rem 3rem 0 0; /* left and right corner border curve */
+    }
+
+    /* time duration */
+    .song-timer {
+        color: var(--darkest);
+        display: flex;
+        justify-content: space-between; /* so we can split current start time and end time */
+        font-weight: 600;
+        margin: 0.5rem 0;
+    }
+
+    /* range slider */
+    input[type="range"] {
+        appearance: none;
+        width: 50%; /* keep at 50%, for both 'duration' and 'volume' range lines, so volume one doesn't get too big */
+        outline: none;
+        height: 2px; /* make it a thin line */
+        margin: 0 10%;
+    }
+
+    /* Then set the 'duration' range lines to a larger % */
+    .duration input[type="range"] {
+        width: 80%;
+    }
+
+
+    /* Lets add some common style to the entire 'buttons' class %. The following line (.buttons > *) sets buttons and all its children */
+    .buttons > * {
+        border: none;
+        outline: none;
+        background: var(--light); /* Match background color to button containers */
+        padding: 0.3rem;
+        cursor: pointer; /* Make each of the three buttons (prev, play, next) clickable */
+        color: black; /* buttons color */
+    }
+
+    /* 'play' button specify: color */
+    .play {
+        background: var(--maroon);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        color: var(--light)
+    }
+
+    /* 'play all' button specify: color */
+    .play-all {
+        display: block;
+        margin: 0 auto;   /* center the 'play all' button */
+        padding: 3px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* 'volume' button */
+    .volume {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0 1rem 0;
+    }
+
+    /* 'volume' paragraph button: aka volume level */
+    .volume p {
+        background: var(--light);
+        color: black;
+        font-size: 1.2rem;
+    
+        padding: 0 3px;
+        margin-right: 8px;
+    }
+
+    /* 'volume' icon */
+    .volume i {
+        background: var(--light);
+        color: var(--boldpurple);
+        font-size: 1.2rem;
+        height: 1.5rem;
+        padding: 0 3px; /* make icon bg a bit bigger */
+        margin-right: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* center volume icon */
+        cursor: pointer;
+    }
+    
+    /* lets make the volume range slider start at 0 */
+    .volume input[type="range"] { 
+        margin:0;
+    }
+          
+
+    /* range slider knub */
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        height: 12px;
+        width: 12px;
+        background: var(--darkest);
+        border-radius: 50%; /* make it circular */
+        width: 3%;
+        height: 9px;
+        cursor: pointer;
+    }
+
+    .buttons {
+        text-align: center;
+        margin: 0.2rem auto;
+        width: 60%;
+        padding: 5px 0;
+        background: var(--light);
+        border-radius: 5px;
+    }
+
+
+    /* Music Playlist */
+    .music-playlist {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        background: rgba(0,0,0,0.9); /* we want it to have an opaqueish transparency so the BG is faded out */
+        width: 100%;
+        height: 100%;
+        transform: translateX(-200%); /* move playlist pop up all the  way to left */
+        transition: all 0.5s;
+    }
+
+    .music-playlist .playlist-header {
+        color: var(--light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;  
+    }
+
+    .music-playlist .playlist-header .fa { /* make font awesome icons in playlist header clickable */
+        cursor: pointer;
+    }
+
+    /* Playlist Que Div */
+    .playlist-que {
+        width: 100%;
+        height: 80vh;
+        overflow-y: auto;
+    }
+
+    /* if we have extra songs, in the Playlist Que, we need to make them scrollable, here's the code for that: */
+    .playlist-que::-webkit-scrollbar {
+        width: 4px;
+        height: 5px;
+        border: 1px solid var(--light);
+        background: var(--light);
+    }
+
+    .playlist-que::-webkit-scrollbar-track {
+        --webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    .playlist-que::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+        outline: 1px solid #eee;
+    }
+
+    .playlist {
+        display: flex;
+        align-items: center;
+        color: var(--grey); /* Playlist Songs font colour */
+    }
+
+    .song-index {  /* Song 1,2,3,4 */
+        font-size: 1.4rem;
+        margin-right: 5px;
+    }
+
+    .single-track { /* single-track paragraph: so we can reference it via .playlist p, where 'p' is for paragraph */
+        width: 90%;
+        font-size: 1.4rem;
+        border-bottom: 1px solid var(--color-grey);
+        padding: 5px 0;
+        cursor: pointer; /* Make the song clickable: we will then get this to actually trigger playing of the song in .js script */
+    }
