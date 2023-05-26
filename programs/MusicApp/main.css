@@ -9,6 +9,7 @@
         --light: #dcd9d9;
         --disk: #291e2b;
         --maroon: #5d3857; /* same as our img (used color picker in photoshop)  */
+        --red: #842929;
         --pink: #EC4899;
         --purple: #8B5CF6;
         --boldpurple: #311950;
@@ -29,7 +30,9 @@
         flex-direction: column;
         min-height: 100vh; /* 100 viewport height */
         background: var(--darkpurple);
-        color: #ffffff; /* set font and icon colour to white */
+        color: var(--red); /* set font and icon colour to white, actually just Song Name */
+        font-size: 1.2rem; 
+        font-weight: 600; 
     }
 
     /* center the "container box" class: to center of browser */
@@ -69,8 +72,9 @@
 
     /* Music Playlist font */
     .music-header {  
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 400;
+        color: var(--light);
     }
 
     /* class 'details' */
@@ -83,7 +87,7 @@
     .details .artist {   /* class artist in class 'details' (Below image and Song Title) */
        font-size: 1.2rem; 
        font-weight: 600; 
-       color: var(--dark);
+       color: var(--maroon);
     }
 
     /* Controls: Media player corner curve and vertical time padding */
