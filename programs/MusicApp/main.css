@@ -86,7 +86,7 @@
        color: var(--dark);
     }
 
-    /* Controls */
+    /* Controls: Media player corner curve and vertical time padding */
     .controls {
         background: var(--maroon);
         padding: 2rem 1rem;
@@ -102,16 +102,16 @@
         margin: 0.5rem 0;
     }
 
-    /* range slider */
+    /* range slider for volume */
     input[type="range"] {
         appearance: none;
-        width: 50%; /* keep at 50%, for both 'duration' and 'volume' range lines, so volume one doesn't get too big */
+        width: 50%; /* keep at 50%, for both 'duration' and 'volume' range lines, so volume one doesn't get too big lets set to 50% */
         outline: none;
-        height: 2px; /* make it a thin line */
-        margin: 0 10%;
+        height: 2px; /* make the time duration bar a thin line */
+        margin: 0 10%; /* give it 10% padding horizontally from left */
     }
 
-    /* Then set the 'duration' range lines to a larger % */
+    /* Then set the time 'duration' range line length to a larger % */
     .duration input[type="range"] {
         width: 80%;
     }
