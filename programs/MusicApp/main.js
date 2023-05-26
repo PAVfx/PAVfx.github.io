@@ -29,6 +29,7 @@ playlistClose = document.querySelector(".fa-times"), // close icon
 
 // Music Playlist class
 musicPlaylist = document.querySelector(".music-playlist"),
+playlistQue = document.querySelector(".playlist-que"),
 playlist = document.querySelector(".playlist"); // end of all constant variables
 
 // Helper variables
@@ -50,6 +51,8 @@ volumeIcon.addEventListener("click", muteSound); // listen for a click event on 
 volumeSlider.addEventListener("change", changeVolume); // listen for a change event (range slider) on the Volume bar slider, if changed, then call 'changeVolume' function
 timeSlider.addEventListener("change", changeDuration); // listen for a change event (range slider) on the Volume bar slider, if changed, then call 'changeVolume' function
 song.addEventListener("timeupdate", updateSongTime);
+playlistBars.addEventListener("click", showPlaylist); // show and hide playlist via
+playlistClose.addEventListener("click", hidePlaylist); // bars icon and 'X' icon click
 
 // Load Track Function
 function loadTrack(indexTrack) { // load first song in array
@@ -238,3 +241,31 @@ function updateSongTime() {
     trackCurrentTime.innerHTML = formattedCurMins + ":" + formattedCurSecs;
     trackDuration.innerHTML = formattedDurMins + ":" + formattedDurSecs;
 }
+
+
+// Show Playlist: reference .css script element: .music-playlist adjust translateX value to show or hide playlist
+function showPlaylist() {
+    musicPlaylist.style.transform = "translateX(0)";
+}
+
+// Hide Playlist:
+function hidePlaylist() {
+    musicPlaylist.style.transform = "translateX(-200%)";
+}
+
+// Display Tracks: now lets display trackList[] array titles into playlist
+let counter = 1; // song 1, then 2, 3, 4, etc
+function displayTracks() {
+    for (let i = 0; i < trackList.length; i++) {
+        console.log(trackList[i].name);
+        let div = document.createElement("div"); // creating a div element
+        div.classList.add("playlist"); // lets create the playlist div in .js instead of .html
+        div.innerHTML = `
+        <span class="song-index">${counter++})</span>
+        <p class="single-track">${trackList[i].name}</p>
+        `;
+        playlistQue.appendChild(div); // append the div we just created above, aka actual song index and title, to our playlistQue element (aka the playlist)
+    }
+}
+
+displayTracks();

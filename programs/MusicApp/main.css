@@ -7,6 +7,7 @@
         --grey: #6B7280;
         --greyblue: #4b5c7d;
         --light: #dcd9d9;
+        --redish: #461e1e;
         --disk: #291e2b;
         --maroon: #5d3857; /* same as our img (used color picker in photoshop)  */
         --red: #842929;
@@ -63,18 +64,18 @@
 
     .music-header .fa {   /* .fa to edit the font awesome icons in that music-header class */
         font-size:1.6rem;
-        color: var(--boldpurple)
+        color: var(--red)
     }
 
     .fa-bars { /* access bars icon via .fa, and make it clickable */
         cursor: pointer;
     }
 
-    /* Music Playlist font */
+    /* Music Playlist font: Now Playing */
     .music-header {  
         font-size: 1.3rem;
         font-weight: 400;
-        color: var(--light);
+        color: var(--redish);
     }
 
     /* class 'details' */
@@ -262,7 +263,7 @@
     .playlist {
         display: flex;
         align-items: center;
-        color: var(--grey); /* Playlist Songs font colour */
+        color: var(--red); /* Playlist Songs font colour */
     }
 
     .song-index {  /* Song 1,2,3,4 */
