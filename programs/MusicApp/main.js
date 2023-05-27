@@ -266,6 +266,26 @@ function displayTracks() {
         `;
         playlistQue.appendChild(div); // append the div we just created above, aka actual song index and title, to our playlistQue element (aka the playlist)
     }
+    playFromPlaylist();
 }
 
 displayTracks();
+
+// Play song from the playlist:
+function playFromPlaylist() {
+    // Playlist Que is inside variable playlistQue, lets add an event listener to it and see if one of the tracks was clicked
+    playlistQue.addEventListener("click", (e) => { 
+        // since we are not trying to trigger another function, but trigger this one, lets pass (e), which refers to the event object, its passed as an argument to the event listener function. 
+        // When an event occurs, such as a click event, the event object contains information about the event itself, including details about the element that triggered the event.
+        if (e.target.classList.contains("single-track")) { // so remember single-track paragraph contains each tracklist
+            const indexNum = trackList.findIndex((item, index) => {
+                if (item.name === e.target.innerHTML) {// item = object element (name, path, img, singer) in array, so if that object.name matches whats in clicked on html playlist page 
+                    return true; // then can return true
+                }
+            }); // end of main if statement
+            loadTrack(indexNum);
+            playSong();
+            hidePlaylist();
+        }
+    })
+}
