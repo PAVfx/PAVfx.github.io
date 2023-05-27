@@ -277,10 +277,11 @@ function playFromPlaylist() {
     playlistQue.addEventListener("click", (e) => { 
         // since we are not trying to trigger another function, but trigger this one, lets pass (e), which refers to the event object, its passed as an argument to the event listener function. 
         // When an event occurs, such as a click event, the event object contains information about the event itself, including details about the element that triggered the event.
-        if (e.target.classList.contains("single-track")) { // so remember single-track paragraph contains each tracklist
-            const indexNum = trackList.findIndex((item, index) => {
-                if (item.name === e.target.innerHTML) {// item = object element (name, path, img, singer) in array, so if that object.name matches whats in clicked on html playlist page 
-                    return true; // then can return true
+        if (e.target.classList.contains("single-track")) { // note: 'single-track' paragraph contains each tracklist name, so this if() ensure thats what we clicking on it, and stores that clicked target in 'e'
+            const indexNum = trackList.findIndex((item, index) => { // find item, aka object, containing [name, path, img, singer] and the index number for it
+                if (item.name === e.target.innerHTML) { // this is where we compare each found item's name to what was clicked (stored in our target 'e')
+                    // item = object element (name, path, img, singer) in array, so if that object.name matches whats in clicked on html playlist page 
+                    return true; // once the target and item found via findIndex exists, then we can return true
                 }
             }); // end of main if statement
             loadTrack(indexNum);
