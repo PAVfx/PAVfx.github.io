@@ -267,13 +267,13 @@
     }
 
     .song-index {  /* Song 1,2,3,4 */
-        font-size: 1.4rem;
+        font-size: 1.4rem; /* Song Index Font Size */
         margin-right: 5px;
     }
 
     .single-track { /* single-track paragraph: so we can reference it via .playlist p, where 'p' is for paragraph */
         width: 90%;
-        font-size: 1.4rem;
+        font-size: 1.4rem; /* Song Name Font Size */
         border-bottom: 1px solid var(--color-grey);
         padding: 5px 0;
         cursor: pointer; /* Make the song clickable: we will then get this to actually trigger playing of the song in .js script */
