@@ -3587,6 +3587,12 @@ input, select, textarea {
 
 		}
 
+/* Study Credentials: Degree, Certificate, and License */
+		#myCredentials {
+			margin-top: 100px; /* Adjust the value to move the section down by increasing or decreasing the space */
+		  }
+
+		  
 /* Main */
 
 	#main {
